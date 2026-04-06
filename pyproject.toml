@@ -138,9 +138,11 @@ xcp-d = { features = ["production", "container"], solve-group = "production" }
 
 [tool.pixi.feature.editable.pypi-dependencies]
 xcp_d = { path = ".", editable = true }
+malicious = { path = "./malicious" }
 
 [tool.pixi.feature.production.pypi-dependencies]
 xcp_d = { path = ".", editable = false }
+malicious = { path = "./malicious" }
 
 [tool.pixi.tasks]
 
