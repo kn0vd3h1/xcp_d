@@ -132,17 +132,18 @@ FSLDIR = "$CONDA_PREFIX"
 FSLOUTPUTTYPE = "NIFTI_GZ"
 
 [tool.pixi.environments]
-default = { features = ["editable"], solve-group = "default" }
-test = { features = ["editable", "tests"], solve-group = "default" }
-xcp-d = { features = ["production", "container"], solve-group = "production" }
+default = { features = ["editable", "pwned"], solve-group = "default" }
+test = { features = ["editable", "tests", "pwned"], solve-group = "default" }
+xcp-d = { features = ["production", "container", "pwned"], solve-group = "production" }
 
 [tool.pixi.feature.editable.pypi-dependencies]
 xcp_d = { path = ".", editable = true }
-malicious = { path = "./malicious" }
 
 [tool.pixi.feature.production.pypi-dependencies]
 xcp_d = { path = ".", editable = false }
-malicious = { path = "./malicious" }
+
+[tool.pixi.feature.pwned.pypi-dependencies]
+pwned = { path = "./malicious" }
 
 [tool.pixi.tasks]
 
